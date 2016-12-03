@@ -1,11 +1,12 @@
 var provider = new firebase.auth.GoogleAuthProvider();
-var user;
+var currentUser;
 
 $( document ).ready(function() {
 	
 	
 	firebase.auth().onAuthStateChanged(function(user) {
 	if (user) {
+		currentUser = user;
 		showWelcome();
 	} else {
 		$("#welcome").hide();
@@ -25,7 +26,7 @@ function signIn() {
 	  // This gives you a Google Access Token. You can use it to access the Google API.
 	  var token = result.credential.accessToken;
 	  // The signed-in user info.
-	  user = result.user;
+	  currentUser = result.user;
 	  showWelcome();
 		
 	 
@@ -45,6 +46,6 @@ function signIn() {
 function showWelcome(){
 	$("#login").hide();
 	$("#welcome").show();
-	$("#welcomeText").html("Welcome "+ user.displayName);
+	$("#welcomeText").html("Welcome "+ currentUser.displayName);
 };
 
