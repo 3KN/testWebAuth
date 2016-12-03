@@ -11,6 +11,7 @@ $( document ).ready(function() {
 	} else {
 		$("#welcome").hide();
 		$(".upload-group").hide();
+		$("#login").show();
 	//document.getElementById("upload").addEventListener('change', handleFileSelect, false);
 	}
 	});
