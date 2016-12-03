@@ -3,15 +3,21 @@ var user;
 
 $( document ).ready(function() {
 	
-	if(user!=null){
+	
+	firebase.auth().onAuthStateChanged(function(user) {
+	if (user) {
 		showWelcome();
-	}else{
-		
+	} else {
 		$("#welcome").hide();
 		$(".upload-group").hide();
 	//document.getElementById("upload").addEventListener('change', handleFileSelect, false);
 	}
+	});
+	
+
 });
+
+
 
 
 function signIn() {
