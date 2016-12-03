@@ -33,5 +33,6 @@ function signIn() {
 function showWelcome(){
 	$("#login").hide();
 	$("#welcome").show();
+	$("#welcomeText").html("Welcome "+ user.displayName);
 }
 
