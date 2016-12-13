@@ -81,8 +81,8 @@ function showWelcome(){
 			$("#welcomeText").html("Welcome "+ snapshot.val());
 		});
 		
-		var starCountRef2 = firebase.database().ref('users/' + currentUser.uid+'/photoUrl');
-		starCountRef.on('value', function(snapshot) {
+		var starCountRef2 = firebase.database().ref('users/' + currentUser.uid + '/photoUrl');
+		starCountRef2.on('value', function(snapshot) {
 			document.getElementById("#imageDoge").src= snapshot.val();
 		});
 		
