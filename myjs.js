@@ -4,10 +4,10 @@ var currentUser;
 
 $( document ).ready(function() {
 	
+	
 	firebase.auth().onAuthStateChanged(function(user) {
 	if (user) {
 		currentUser = user;
-		
 		showWelcome();
 	} else {
 		$("#welcome").hide();
@@ -35,12 +35,9 @@ function signIn() {
 	  // This gives you a Google Access Token. You can use it to access the Google API.
 	  var token = result.credntial.accessToken;
 	  // The signed-in user info.
-	  currentUser = result.user
-	  console.log(currentUser.userId);
-	  console.log(urrentUser.displayName);
-	  console.log(currentUser.email);
-	  console.log(currentUser.providerId);
-	  writeUserData(currentUser.userId,currentUser.displayName,currentUser.email,currentUser.providerId,"admins")
+	  currentUser = result.user;
+	  writeUser("team");
+	  writeUserData(currentUser.userId,currentUser.displayName,currentUser.email,currentUser.providerId,"admins");
 	  showWelcome();
 		
 	 
@@ -63,6 +60,11 @@ function writeUserData(userId, name, email, imageUrl,providerId,team) {
 		email: email,
 		photoUrl : imageUrl,
 		providerId: providerId,
+		team : team
+  });
+}
+function writeUser(team) {
+	firebase.database().ref('newusers/').set({
 		team : team
   });
 }
