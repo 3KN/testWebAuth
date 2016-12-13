@@ -37,7 +37,7 @@ function signIn() {
 	  // The signed-in user info.
 	  currentUser = result.user;
 	  
-	  writeUserData(currentUser.uid,currentUser.displayName,currentUser.email,currentUser.providerId,"admins");
+		
 	  showWelcome();
 		
 	 
@@ -54,8 +54,8 @@ function signIn() {
 	});
 };
 
-function writeUserData(userId, name, email, imageUrl,providerId,team) {
-	firebase.database().ref('newusers/' + userId).set({
+function writeUserData(uid, name, email, imageUrl,providerId,team) {
+	firebase.database().ref('newusers/' + uid).set({
 		name: name,
 		email: email,
 		photoUrl : imageUrl,
@@ -74,6 +74,7 @@ function showWelcome(){
 	$("#login").hide();
 	$("#welcome").show();
 	$("#welcomeText").html("Welcome "+ currentUser.displayName);
+	$("imageDoge").attr("src", currentUser.photoURL);
 	
 	var starCountRef = firebase.database().ref('users/' + currentUser.uid+'/name');
 		starCountRef.on('value', function(snapshot) {
