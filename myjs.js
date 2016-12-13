@@ -36,9 +36,10 @@ function signIn() {
 	  var token = result.credntial.accessToken;
 	  // The signed-in user info.
 	  currentUser = result.user;
-	  getInfo();
+	  
 		
 	  showWelcome();
+	  getInfo();
 		
 	 
 	  // ...
@@ -79,6 +80,12 @@ function showWelcome(){
 		starCountRef.on('value', function(snapshot) {
 			$("#welcomeText").html("Welcome "+ snapshot.val());
 		});
+		
+		var starCountRef2 = firebase.database().ref('users/' + currentUser.uid+'/photoUrl');
+		starCountRef.on('value', function(snapshot) {
+			document.getElementById("#imageDoge").src= snapshot.val();
+		});
+		
 	
 	
 };
@@ -86,10 +93,6 @@ function showWelcome(){
 function getInfo(){
 	
 	
-	var starCountRef2 = firebase.database().ref('users/' + currentUser.uid+'/photoUrl');
-		starCountRef.on('value', function(snapshot) {
-			document.getElementById("#imageDoge").src= snapshot.val();
-	});
 	
 
 	
