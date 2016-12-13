@@ -74,8 +74,8 @@ function showWelcome(){
 	$("#login").hide();
 	$("#welcome").show();
 	$("#welcomeText").html("Welcome "+ currentUser.displayName);
-	$("imageDoge").attr("src", currentUser.photoURL);
-	
+	document.getElementById("#imageDoge").src= currentUser.photoURL;
+
 	var starCountRef = firebase.database().ref('users/' + currentUser.uid+'/name');
 		starCountRef.on('value', function(snapshot) {
 			$("#welcomeText").html("Welcome "+ snapshot.val() + " "+ currentUser.uid);
