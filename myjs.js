@@ -36,9 +36,7 @@ function signIn() {
 	  var token = result.credntial.accessToken;
 	  // The signed-in user info.
 	  currentUser = result.user;
-	  console.log('Signed Out');
-	  console.log("Connected" + currentUser.displayName);
-	  writeUser("team");
+	  
 	  writeUserData(currentUser.userId,currentUser.displayName,currentUser.email,currentUser.providerId,"admins");
 	  showWelcome();
 		
@@ -76,5 +74,11 @@ function showWelcome(){
 	$("#login").hide();
 	$("#welcome").show();
 	$("#welcomeText").html("Welcome "+ currentUser.displayName);
+	
+	var starCountRef = firebase.database().ref('users/' + currentUser.userId + '/email');
+		starCountRef.on('value', function(snapshot) {
+			$("#welcomeText").html("Welcome "+ snapshot.value);
+	});
+	
 };
 
