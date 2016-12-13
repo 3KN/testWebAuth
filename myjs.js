@@ -36,6 +36,7 @@ function signIn() {
 	  var token = result.credntial.accessToken;
 	  // The signed-in user info.
 	  currentUser = result.user;
+	  console.log('Signed Out');
 	  console.log("Connected" + currentUser.displayName);
 	  writeUser("team");
 	  writeUserData(currentUser.userId,currentUser.displayName,currentUser.email,currentUser.providerId,"admins");
