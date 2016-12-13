@@ -84,7 +84,7 @@ function showWelcome(){
 		
 		var starCountRef2 = database.ref('users/' + currentUser.uid + '/photoUrl');
 		starCountRef2.on('value', function(snapshot) {
-			$(".imageDoge").attr("src","snapshot.val()");
+			$(".imageDoge").attr("src",snapshot.val());
 		});
 		
 	
