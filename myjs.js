@@ -73,13 +73,25 @@ function writeUser(team) {
 function showWelcome(){
 	$("#login").hide();
 	$("#welcome").show();
-	$("#welcomeText").html("Welcome "+ currentUser.displayName);
-	document.getElementById("#imageDoge").src= currentUser.photoURL;
+	//$("#welcomeText").html("Welcome "+ currentUser.displayName);
+	
 
-	var starCountRef = firebase.database().ref('users/' + currentUser.uid+'/name');
-		starCountRef.on('value', function(snapshot) {
-			$("#welcomeText").html("Welcome "+ snapshot.val() + " "+ currentUser.uid);
-	});
+	
 	
 };
+
+function getInfo(){
+	var starCountRef = firebase.database().ref('users/' + currentUser.uid+'/name');
+		starCountRef.on('value', function(snapshot) {
+			$("#welcomeText").html("Welcome "+ snapshot.val());
+			
+			document.getElementById("#imageDoge").src= currentUser.photoURL;
+	
+	
+	var starCountRef = firebase.database().ref('users/' + currentUser.uid+'/photoUrl');
+		starCountRef.on('value', function(snapshot) {
+			document.getElementById("#imageDoge").src= snapshot.val();
+	});
+	
+}
 
