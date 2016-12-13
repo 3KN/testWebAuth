@@ -39,7 +39,7 @@ function signIn() {
 	  
 		
 	  showWelcome();
-	  getInfo();
+	 
 		
 	 
 	  // ...
@@ -79,23 +79,16 @@ function showWelcome(){
 		var starCountRef = firebase.database().ref('users/' + currentUser.uid+'/email');
 		starCountRef.on('value', function(snapshot) {
 			$("#welcomeText").html("Welcome "+ snapshot.val());
-			$(".imageDoge").attr("src","http://motherboard-images.vice.com/content-images/article/20733/1428578997900669.jpg"); 
+			 
 		});
 		
-		/*var starCountRef = database.ref('users/' + currentUser.uid + '/email');
-		starCountRef.on('value', function(snapshot) {
-			document.getElementById("#imageDoge").src= snapshot.val();
-		});*/
+		var starCountRef2 = database.ref('users/' + currentUser.uid + '/email');
+		starCountRef2.on('value', function(snapshot) {
+			$(".imageDoge").attr("src","snapshot.val()");
+		});
 		
 	
 	
 };
 
-function getInfo(){
-	
-	
-	
-
-	
-}
 
