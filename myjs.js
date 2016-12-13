@@ -77,7 +77,7 @@ function showWelcome(){
 	
 	var starCountRef = firebase.database().ref('users/' + currentUser.userId+'/name');
 		starCountRef.on('value', function(snapshot) {
-			$("#welcomeText").html("Welcome "+ snapshot.val() + " " currentUser.userId));
+			$("#welcomeText").html("Welcome "+ snapshot.val() + " "+ currentUser.userId));
 	});
 	
 };
