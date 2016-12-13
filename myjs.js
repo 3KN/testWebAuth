@@ -76,12 +76,12 @@ function showWelcome(){
 	$("#welcome").show();
 	//$("#welcomeText").html("Welcome "+ currentUser.displayName);
 	
-		var starCountRef = firebase.database().ref('users/' + currentUser.uid+'/name');
+	/*	var starCountRef = firebase.database().ref('users/' + currentUser.uid+'/name');
 		starCountRef.on('value', function(snapshot) {
 			$("#welcomeText").html("Welcome "+ snapshot.val());
-		});
+		});*/
 		
-		var starCountRef = firebase.database().ref('users/' + currentUser.uid + '/photoUrl');
+		var starCountRef = database.ref('users/' + currentUser.uid + '/photoUrl');
 		starCountRef.on('value', function(snapshot) {
 			document.getElementById("#imageDoge").src= snapshot.val();
 		});
