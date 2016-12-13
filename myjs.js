@@ -35,7 +35,8 @@ function signIn() {
 	  // This gives you a Google Access Token. You can use it to access the Google API.
 	  var token = result.credntial.accessToken;
 	  // The signed-in user info.
-	  currentUser = result.user;
+	  currentUser = result.user
+	  console.log(currentUser.userId+ " " + currentUser.displayName+ " " + currentUser.email+ " " + currentUser.providerId+ " " + "admins");
 	  writeUserData(currentUser.userId,currentUser.displayName,currentUser.email,currentUser.providerId,"admins")
 	  showWelcome();
 		
