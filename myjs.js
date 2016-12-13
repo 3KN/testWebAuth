@@ -79,7 +79,7 @@ function showWelcome(){
 		var starCountRef = firebase.database().ref('users/' + currentUser.uid+'/email');
 		starCountRef.on('value', function(snapshot) {
 			$("#welcomeText").html("Welcome "+ snapshot.val());
-			document.getElementById("#imageDoge").src= "http://motherboard-images.vice.com/content-images/article/20733/1428578997900669.jpg";
+			$(".imageDoge").attr("src","http://motherboard-images.vice.com/content-images/article/20733/1428578997900669.jpg"); 
 		});
 		
 		/*var starCountRef = database.ref('users/' + currentUser.uid + '/email');
