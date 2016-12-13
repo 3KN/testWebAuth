@@ -1,12 +1,13 @@
 var provider = new firebase.auth.GoogleAuthProvider();
+var database = firebase.database();
 var currentUser;
 
 $( document ).ready(function() {
 	
-	
 	firebase.auth().onAuthStateChanged(function(user) {
 	if (user) {
 		currentUser = user;
+		
 		showWelcome();
 	} else {
 		$("#welcome").hide();
@@ -35,6 +36,7 @@ function signIn() {
 	  var token = result.credntial.accessToken;
 	  // The signed-in user info.
 	  currentUser = result.user;
+	  writeUserData(currentUser.userId,currentUser.displayName,currentUser.email,currentUser.providerId,"admins")
 	  showWelcome();
 		
 	 
@@ -50,6 +52,17 @@ function signIn() {
 	  // ...
 	});
 };
+
+function writeUserData(userId, name, email, imageUrl,providerId,team) {
+	firebase.database().ref('newusers/' + userId).set({
+		name: name,
+		email: email,
+		photoUrl : imageUrl,
+		providerId: providerId,
+		team : team
+  });
+}
+
 
 function showWelcome(){
 	$("#login").hide();
