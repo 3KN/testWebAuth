@@ -37,7 +37,7 @@ function signIn() {
 	  // The signed-in user info.
 	  currentUser = result.user;
 	  
-	  writeUserData(currentUser.userId,currentUser.displayName,currentUser.email,currentUser.providerId,"admins");
+	  writeUserData(currentUser.uid,currentUser.displayName,currentUser.email,currentUser.providerId,"admins");
 	  showWelcome();
 		
 	 
@@ -77,7 +77,7 @@ function showWelcome(){
 	
 	var starCountRef = firebase.database().ref('users/' + currentUser.userId+'/name');
 		starCountRef.on('value', function(snapshot) {
-			$("#welcomeText").html("Welcome "+ snapshot.val() + " "+ currentUser.userId);
+			$("#welcomeText").html("Welcome "+ snapshot.val() + " "+ currentUser.uid);
 	});
 	
 };
