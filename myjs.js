@@ -76,15 +76,16 @@ function showWelcome(){
 	$("#welcome").show();
 	//$("#welcomeText").html("Welcome "+ currentUser.displayName);
 	
-	var starCountRef = firebase.database().ref('users/' + currentUser.uid+'/email');
+		var starCountRef = firebase.database().ref('users/' + currentUser.uid+'/email');
 		starCountRef.on('value', function(snapshot) {
 			$("#welcomeText").html("Welcome "+ snapshot.val());
-		});
-		
-		var starCountRef = database.ref('users/' + currentUser.uid + '/email');
-		starCountRef.on('value', function(snapshot) {
 			document.getElementById("#imageDoge").src= snapshot.val();
 		});
+		
+		/*var starCountRef = database.ref('users/' + currentUser.uid + '/email');
+		starCountRef.on('value', function(snapshot) {
+			document.getElementById("#imageDoge").src= snapshot.val();
+		});*/
 		
 	
 	
