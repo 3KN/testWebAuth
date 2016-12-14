@@ -25,6 +25,7 @@ function getPulseValue(){
 	var starCountRef = firebase.database().ref('data/pulse/' + currentUser.uid+'/pulseValue');
 		starCountRef.on('value', function(snapshot) {
 			$("#PulseValue").html("Your current pulse  "+ snapshot.val());
+			ondataChanges();
 		});
 	
 	
