@@ -63,6 +63,7 @@ function drawBasic(array1) {
 		ref.once('value', function(snapshot) {
 			snapshot.forEach(function(childSnapshot) {
 				var childData = childSnapshot.val();
+				console.log(childSnapshot.val());
 				dataArray.push(childData);
 			});
 			drawBasic(dataArray)
