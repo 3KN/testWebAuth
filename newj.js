@@ -12,7 +12,7 @@ $( document ).ready(function() {
 	} else {
 			$("#PulseValue").html("Sign in First");
 	}
-	
+	});
 
 });
 
