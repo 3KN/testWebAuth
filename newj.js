@@ -36,11 +36,11 @@ function drawBasic(array1) {
       var data = new google.visualization.DataTable();
       data.addColumn('number', 'X');
       data.addColumn('number', 'Pulse Value');
-
-		for (var i = 0; i < array1.length; i++)
-		{
-		data.addRows([[i, array1[i]]])
-		
+		if(array1!=null){
+			for (var i = 0; i < array1.length; i++)
+			{
+				data.addRows([[i, array1[i]]])
+			}
 		}
 
       var options = {
@@ -59,14 +59,14 @@ function drawBasic(array1) {
  
  function ondataChanges(){
 	 
-	 var ref = firebase.database().ref('data/pulseHistory/'+ currentUser.uid).limitToFirst(50);;
+	 var ref = firebase.database().ref('data/pulseHistory/'+ currentUser.uid).limitToFirst(50);
 		ref.once('value', function(snapshot) {
 			snapshot.forEach(function(childSnapshot) {
 				var childData = childSnapshot.val();
 				dataArray.push(childData);
 			});
-	drawBasic(dataArray)
+			drawBasic(dataArray)
   
-});
+	});
 	 
  }
