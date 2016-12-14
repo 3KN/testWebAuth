@@ -1,7 +1,7 @@
 var database = firebase.database();
 var currentUser;
 google.charts.load('current', {packages: ['corechart', 'line']});
-google.charts.setOnLoadCallback(drawBasic);
+//google.charts.setOnLoadCallback(drawBasic);
 var dataArray = [];
 
 
