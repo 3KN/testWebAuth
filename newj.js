@@ -11,7 +11,7 @@ $( document ).ready(function() {
 		getPulseValue();
 	} else {
 			$("#PulseValue").html("Sign in First");
-	};
+	}
 	
 
 });
