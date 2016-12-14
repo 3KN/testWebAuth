@@ -13,6 +13,7 @@ $( document ).ready(function() {
 	if (user) {
 		currentUser = user;
 		getPulseValue();
+		ondataChanges();
 	} else {
 			$("#PulseValue").html("Sign in First");
 	}
