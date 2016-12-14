@@ -76,9 +76,20 @@ function showWelcome(){
 	$("#welcome").show();
 	//$("#welcomeText").html("Welcome "+ currentUser.displayName);
 	
-		var starCountRef = firebase.database().ref('users/' + currentUser.uid+'/email');
+		var starCountRef = firebase.database().ref('users/' + currentUser.uid+'/name');
 		starCountRef.on('value', function(snapshot) {
 			$("#welcomeText").html("Welcome "+ snapshot.val());
+			 
+		});
+		var starCountRef1 = firebase.database().ref('users/' + currentUser.uid+'/email');
+		starCountRef1.on('value', function(snapshot) {
+			$("#welcomeText").html("Email  "+ snapshot.val());
+			 
+		});
+		
+		var starCountRef3 = firebase.database().ref('users/' + currentUser.uid+'/team');
+		starCountRef3.on('value', function(snapshot) {
+			$("#welcomeText").html("Team  "+ snapshot.val());
 			 
 		});
 		
