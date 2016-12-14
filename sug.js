@@ -40,7 +40,7 @@ function drawBasic() {
       ]);
 
       var options = {
-        title: 'Sugar %',
+       
         chartArea: {width: '50%'},
         hAxis: {
           title: 'Total Population',
