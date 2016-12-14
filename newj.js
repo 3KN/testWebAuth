@@ -60,7 +60,7 @@ function drawBasic(array1) {
  }
  
  function ondataChanges(){
-	 
+	 dataArray = [50];
 	 var ref = firebase.database().ref('data/pulseHistory/'+ currentUser.uid).limitToLast(50);
 		ref.once('value', function(snapshot) {
 			snapshot.forEach(function(childSnapshot) {
