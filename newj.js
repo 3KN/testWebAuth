@@ -57,7 +57,7 @@ function drawBasic(array1) {
       chart.draw(data, options);
  }
  
- function on dataChanges(){
+ function ondataChanges(){
 	 
 	 var ref = firebase.database().ref('data/pulseHistory/'+ currentUser.uid).limitToFirst(50);;
 		ref.once('value', function(snapshot) {
