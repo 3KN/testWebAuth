@@ -83,13 +83,13 @@ function showWelcome(){
 		});
 		var starCountRef1 = firebase.database().ref('users/' + currentUser.uid+'/email');
 		starCountRef1.on('value', function(snapshot) {
-			$("#emailText").html("Email  "+ snapshot.val());
+			$("#emailText").html("Email "+ snapshot.val());
 			 
 		});
 		
 		var starCountRef3 = firebase.database().ref('users/' + currentUser.uid+'/team');
 		starCountRef3.on('value', function(snapshot) {
-			$("#teamText").html("Team  "+ snapshot.val());
+			$("#teamText").html("Team "+ snapshot.val());
 			 
 		});
 		
